@@ -29,8 +29,10 @@ const CLINIC_MAPPING = {
   ]
 };
 
+type ClinicCategory = keyof typeof CLINIC_MAPPING;
+
 export default function ChiefComplaints() {
-  const [selectedCategory, setSelectedCategory] = useState("Head & Neck");
+  const [selectedCategory, setSelectedCategory] = useState<ClinicCategory>("Head & Neck");
   const [selectedSymptom, setSelectedSymptom] = useState("");
 
   return (
@@ -50,7 +52,7 @@ export default function ChiefComplaints() {
         {/* Left Side: Category Selection */}
         <div className="flex flex-col gap-4 w-[20rem]">
           <h2 className="text-green-900 text-xl font-serif mb-2">Where is the problem?</h2>
-          {Object.keys(CLINIC_MAPPING).map((cat) => (
+          {(Object.keys(CLINIC_MAPPING) as ClinicCategory[]).map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
