@@ -30,7 +30,7 @@ export default function SummaryScreen({
 }: SummaryScreenProps) {
   return (
     // Main Wrapper - Added relative to contain children and overflow-hidden to prevent scroll issues
-    <div className="hidden">
+    <div className="">
     <div className="relative min-h-screen bg-stone-100 overflow-x-hidden">
       
       {/* Logo Wrapper - Kept absolute but removed 'border' to look cleaner */}
@@ -47,7 +47,7 @@ export default function SummaryScreen({
         {/* Summary Results (Left Side) */}
         <form action="" className="flex flex-col">
           {/* Standardized the width to 50rem so it doesn't conflict with the form width */}
-          <div className="border border-dashed border-green-700 rounded-md p-[2rem] w-[50rem] bg-white shadow-2xl">
+          <div className="border border-dashed border-green-700 rounded-md p-[2rem] w-[35rem] bg-white shadow-2xl">
             <div className="result-card">
               <h2 className="text-[2rem] font-serif text-green-900 mb-6 border-b pb-2">Patient Summary Result</h2>
 
@@ -73,15 +73,15 @@ export default function SummaryScreen({
               <hr className="my-4" />
 
               {/* Vital Signs Section */}
-              <div className="vitals-section mb-6">
+              <div className="vitals-section mb-1">
                 <h5 className="text-[1.1rem] font-bold text-green-800 mb-3">Vital Signs:</h5>
-                <div className="grid grid-cols-4 gap-4 pl-[1rem]">
-                  <div>
+                <div className="grid grid-cols-4 gap-10 ">
+                  <div className="w-50">
                     <h5 className="text-[0.9rem] font-bold font-serif text-black">Blood Pressure</h5>
                     <p className="text-[1rem] text-black">Sys: {bpSys} mmHg</p>
                     <p className="text-[1rem] text-black">Dia: {bpDia} mmHg</p>
                   </div>
-                  <div>
+                  <div className="pl-[10px]">
                     <h5 className="text-[0.9rem] font-bold font-serif text-black">Heart Rate</h5>
                     <p className="text-[1rem] text-black">{hr} bpm</p>
                   </div>

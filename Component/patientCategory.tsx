@@ -11,7 +11,7 @@ console.log("Props PatienCat received:", {isPatientCat});
 
      return (
       
-    <div>
+    <div className={``}>
     {/* Logo Wrapper */}
     <div className="w-full absolute ">
   
@@ -26,8 +26,8 @@ console.log("Props PatienCat received:", {isPatientCat});
 
       {/* Patient Category Wrapper */}
         <div className=" flex flex-col text-center w-full justify-center align-center ">
-        <h1 className="text-[2.7rem] font-bold font-Sans-serif text-green-900">Patient Category</h1>
-        <p className="text-[1.51rem] font-serif">Please select your category.</p>
+        <h1 className="text-[3rem] font-bold font-Sans-serif text-green-900">Patient Category</h1>
+        <p className="text-[1.7rem] font-serif">Please select what applies.</p>
         </div>
 
      <div className="flex flex-row gap-[8rem]">
