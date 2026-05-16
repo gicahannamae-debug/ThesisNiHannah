@@ -1,7 +1,7 @@
 'use client'
 import React from "react";
 
-export default function patientInformation() {
+export default function hospitalNumber() {
   return (
 
     <div className="">
@@ -35,18 +35,47 @@ export default function patientInformation() {
 
         {/* Header */}
         <div className="flex flex-col text-center justify-center">
-          <h1 className="text-[3rem] font-bold text-white">Triage Assessment Form</h1>
+          <h1 className="text-[3rem] font-bold text-white">Returning Patient</h1>
           <p className="text-[1.7rem] font-serif text-white">Please fill-up all necessary information.</p>
         </div>
 
         {/* ── FORM CARD ── */}
         <form className="flex flex-col gap-[1.2rem] bg-cyan-900 px-[2.5rem] py-[2rem] rounded-xl w-[70rem]">
 
-          {/* ── ROW 1: Last Name | First Name | Middle Name | PWD ── */}
+          {/* ── ROW 1: Hospital Number | PhilHealth ID ── */}
           <div className="flex flex-row justify-evenly gap-[1rem]">
 
             <section className="flex flex-col gap-[0.25rem] flex-1">
-              <label className="text-[1.1rem] font-semibold text-white">Last Name</label>
+              <label className="text-[1.1rem] font-semibold text-white">
+                Hospital Number (HN) <span className="text-red-400">*</span>
+              </label>
+              <input
+                type="text"
+                placeholder="e.g. 2024-000123"
+                className="text-[1rem] text-cyan-950 border border-stone-300 bg-orange-50 rounded-sm px-[0.5rem] py-[0.4rem] focus:outline-none focus:ring-2 focus:ring-orange-300 tracking-widest"
+              />
+              <p className="text-[0.75rem] text-cyan-400">Found on your NMMC ID card or previous prescription.</p>
+            </section>
+
+            <section className="flex flex-col gap-[0.25rem] flex-1">
+              <label className="text-[1.1rem] font-semibold text-white">PhilHealth ID No.</label>
+              <input
+                type="text"
+                placeholder="e.g. 00-000000000-0"
+                className="text-[1rem] text-cyan-950 border border-stone-300 bg-orange-50 rounded-sm px-[0.5rem] py-[0.4rem] focus:outline-none focus:ring-2 focus:ring-orange-300"
+              />
+              <p className="text-[0.75rem] text-cyan-400">Use this if you do not have your HN card.</p>
+            </section>
+
+          </div>
+
+          {/* ── ROW 2: Last Name | First Name | Middle Name ── */}
+          <div className="flex flex-row justify-evenly gap-[1rem]">
+
+            <section className="flex flex-col gap-[0.25rem] flex-1">
+              <label className="text-[1.1rem] font-semibold text-white">
+                Last Name <span className="text-red-400">*</span>
+              </label>
               <input
                 type="text"
                 placeholder="e.g. Dela Cruz"
@@ -55,7 +84,9 @@ export default function patientInformation() {
             </section>
 
             <section className="flex flex-col gap-[0.25rem] flex-1">
-              <label className="text-[1.1rem] font-semibold text-white">First Name</label>
+              <label className="text-[1.1rem] font-semibold text-white">
+                First Name <span className="text-red-400">*</span>
+              </label>
               <input
                 type="text"
                 placeholder="e.g. Juan"
@@ -72,30 +103,26 @@ export default function patientInformation() {
               />
             </section>
 
-            <section className="flex flex-col gap-[0.25rem] w-[9rem]">
-              <label className="text-[1.1rem] font-semibold text-white">PWD?</label>
-              <select className="text-[1rem] text-cyan-950 border border-stone-300 bg-orange-50 rounded-sm px-[0.5rem] py-[0.4rem] focus:outline-none focus:ring-2 focus:ring-orange-300">
-                <option value="">— select —</option>
-                <option>Not PWD</option>
-                <option>Yes, PWD</option>
-              </select>
-            </section>
-
           </div>
 
-          {/* ── ROW 2: Birthdate | Age | Sex ── */}
+          {/* ── ROW 3: Birthdate | Age | Sex ── */}
           <div className="flex flex-row justify-evenly gap-[1rem]">
 
             <section className="flex flex-col gap-[0.25rem] flex-1">
-              <label className="text-[1.1rem] font-semibold text-white">Birthdate</label>
+              <label className="text-[1.1rem] font-semibold text-white">
+                Birthdate <span className="text-red-400">*</span>
+              </label>
               <input
                 type="date"
                 className="text-[1rem] text-cyan-950 border border-stone-300 bg-orange-50 rounded-sm px-[0.5rem] py-[0.4rem] focus:outline-none focus:ring-2 focus:ring-orange-300"
               />
+              <p className="text-[0.75rem] text-cyan-400">Must match your registered record exactly.</p>
             </section>
 
             <section className="flex flex-col gap-[0.25rem] w-[8rem]">
-              <label className="text-[1.1rem] font-semibold text-white">Age</label>
+              <label className="text-[1.1rem] font-semibold text-white">
+                Age <span className="text-red-400">*</span>
+              </label>
               <input
                 type="number"
                 placeholder="0"
@@ -106,7 +133,9 @@ export default function patientInformation() {
             </section>
 
             <section className="flex flex-col gap-[0.25rem] flex-1">
-              <label className="text-[1.1rem] font-semibold text-white">Sex</label>
+              <label className="text-[1.1rem] font-semibold text-white">
+                Sex <span className="text-red-400">*</span>
+              </label>
               <select className="text-[1rem] text-cyan-950 border border-stone-300 bg-orange-50 rounded-sm px-[0.5rem] py-[0.4rem] focus:outline-none focus:ring-2 focus:ring-orange-300">
                 <option value="">— select —</option>
                 <option>Male</option>
@@ -116,28 +145,61 @@ export default function patientInformation() {
 
           </div>
 
-          {/* ── ROW 3: Address ── */}
-          <div className="flex flex-row gap-[1rem]">
+          {/* ── ROW 4: Contact Number | Purpose of Visit ── */}
+          <div className="flex flex-row justify-evenly gap-[1rem]">
 
             <section className="flex flex-col gap-[0.25rem] flex-1">
-              <label className="text-[1.1rem] font-semibold text-white">Address</label>
+              <label className="text-[1.1rem] font-semibold text-white">
+                Registered Contact Number <span className="text-red-400">*</span>
+              </label>
               <input
-                type="text"
-                placeholder="e.g. House No., Street, Barangay, City, Province"
+                type="tel"
+                placeholder="e.g. 09XX-XXX-XXXX"
                 className="text-[1rem] text-cyan-950 border border-stone-300 bg-orange-50 rounded-sm px-[0.5rem] py-[0.4rem] focus:outline-none focus:ring-2 focus:ring-orange-300"
               />
+              <p className="text-[0.75rem] text-cyan-400">Used to verify and confirm your identity.</p>
+            </section>
+
+            <section className="flex flex-col gap-[0.25rem] flex-1">
+              <label className="text-[1.1rem] font-semibold text-white">
+                Purpose of Visit <span className="text-red-400">*</span>
+              </label>
+              <select className="text-[1rem] text-cyan-950 border border-stone-300 bg-orange-50 rounded-sm px-[0.5rem] py-[0.4rem] focus:outline-none focus:ring-2 focus:ring-orange-300">
+                <option value="">— select —</option>
+                <option>OPD check-in / follow-up</option>
+                <option>Lab / diagnostic result</option>
+                <option>Pharmacy</option>
+                <option>Billing / cashier</option>
+                <option>Medical certificate request</option>
+                <option>Other</option>
+              </select>
             </section>
 
           </div>
 
-          {/* ── PROCEED BUTTON — centered, not full width ── */}
-          <div className="flex justify-center pt-[0.5rem]">
+          {/* ── NOTICE ── */}
+          <div className="bg-orange-100 border border-orange-300 rounded-md px-[1rem] py-[0.6rem] text-[0.85rem] text-orange-900">
+            <strong>Note:</strong> Fields marked <span className="text-red-500 font-bold">*</span> are required.
+            If your record cannot be found, please proceed to the <strong>Medical Records window</strong> for manual assistance.
+          </div>
+
+          {/* ── BUTTONS — centered ── */}
+          <div className="flex justify-center gap-[1rem] pt-[0.5rem]">
+
+            <button
+              type="button"
+              className="text-[1.1rem] font-semibold bg-transparent text-orange-50 border border-orange-100 px-[2rem] py-[0.6rem] rounded-md hover:bg-cyan-800 cursor-pointer"
+            >
+              ← Back
+            </button>
+
             <button
               type="submit"
               className="text-[1.3rem] font-semibold bg-orange-50 text-cyan-950 px-[3rem] py-[0.6rem] rounded-md hover:bg-orange-100 cursor-pointer"
             >
-              Proceed
+              Retrieve Record
             </button>
+
           </div>
 
         </form>

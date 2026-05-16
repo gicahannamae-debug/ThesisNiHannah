@@ -3,6 +3,8 @@ import { useState } from "react";
 import WelcomeScreen from "@/Component/welcomeScreen"; 
 import PatientCategory from "@/Component/patientCategory";
 import PatientInformation from "@/Component/patientInformation";
+import ReferralDetails from "@/Component/referralDetails";
+import HospitalNumber from "@/Component/hospitalNumber";
 import VsTemperature from "@/Component/vsTemperature";
 import VsBloodpressure from "@/Component/vsBloodpressure";
 import VsOximeter from "@/Component/vsOximeter";
@@ -26,6 +28,8 @@ export default function Home(){
 
   const [isPatientCat, setIsPatientCat] = useState<boolean>(false);
 
+  console.log("Home render", { isPatientCat });
+
   return (
     <div className={`w-auto h-auto`}>
 
@@ -41,6 +45,8 @@ export default function Home(){
       )}
 
       <PatientInformation />
+      <ReferralDetails />
+      <HospitalNumber />
 
       <VsTemperature />
       <VsBloodpressure />
